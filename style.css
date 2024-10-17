@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+   
+    --text-color: #ca8fea;
+    --bg-url: #0a0a0a;
+    --stroke-color: rgba(191, 110, 235, 0.5);
+    --surface-color: rgba(114, 15, 189, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: #ca8fea;
+    --switch-bg-url: url(../img/sol.svg);
+}
+
+.light {
+    --text-color: #7e24ae;
+    --bg-url: #f1e9e9;
+    --stroke-color: rgba(15, 44, 87, 0.5);
+    --surface-color: rgba(15, 44, 87, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(15, 44, 87, 0.1);
+    --switch-bg-url: url(../img/lua.svg);
+}
+
+body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 0;
+    gap: 3rem;
+    font-family: 'Poppins', sans-serif;
+    background: url('img/fundoF.PNG') no-repeat center center fixed;
+    background-size: cover; 
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.80); /* Altere a opacidade aqui */
+    z-index: 1; /* Coloca a camada acima da imagem */
+}
+
+body > * {
+    position: relative; /* Garante que o conteúdo fique acima do pseudo-elemento */
+    z-index: 2;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+header img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid var(--text-color);
+}
+
+header p {
+    margin-block: 20px;
+    color: var(--text-color);
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#switch {
+    position: relative;
+    width: 65px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    background: #ca8fea var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    animation: slide-back 0.2s;
+}
+
+.light #switch button {
+    animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+    display: block;
+    width: 54px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--text-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 12px;
+    padding: 20px 180px;
+    border: 2px solid var(--text-color);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link ion-icon {
+    font-size: 22px;
+}
+
+.link > span {
+    margin-left: 9px;
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .link {
+        padding: 25px 100px;
+        width: auto; 
+    }
+
+    .link ion-icon {
+        font-size: 28px; 
+    }
+}
